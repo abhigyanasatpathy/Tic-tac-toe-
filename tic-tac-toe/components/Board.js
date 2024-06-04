@@ -1,4 +1,3 @@
-// components/Board.js
 import { useState, useEffect } from 'react'
 import styles from './Board.module.css'
 
@@ -8,7 +7,6 @@ const Board = () => {
   const [resetting, setResetting] = useState(false)
 
   useEffect(() => {
-    // Play start sound when the component is first mounted
     const startSound = new Audio('/start.wav')
     startSound.play()
   }, [])
@@ -22,7 +20,6 @@ const Board = () => {
     setSquares(squaresCopy)
     setXIsNext(!xIsNext)
 
-    // Play click sound
     const clickSound = new Audio('/click.wav')
     clickSound.play()
   }
@@ -34,10 +31,9 @@ const Board = () => {
       setXIsNext(true)
       setResetting(false)
       
-      // Play start sound when the game is reset
       const startSound = new Audio('/start.wav')
       startSound.play()
-    }, 500) // Duration of the fade-out animation
+    }, 500) 
   }
 
   const renderSquare = (i) => {
@@ -53,7 +49,7 @@ const Board = () => {
   if (winner) {
     status = 'Winner: ' + winner
 
-    // Play win sound
+    
     const winSound = new Audio('/win.wav')
     winSound.play()
   } else {
